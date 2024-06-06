@@ -48,8 +48,8 @@ In this project we shall use a dataset containing information about existing wat
 
 ### 2.1 Data Description
 
-The dataset contains 59,400 records and spans 40 columns. Of these columns, we identified 31 to be categorical, and 9 as numeric. 
-Four CSV files have been provided. One titled(Training set values) contains training set values with data on the independent features for the training set. The training set labels file (Training set labels) contains data on the dependent variable. The test set values (Test set values) contains values that will be used for prediction. A submission format (Submission format) has also been provided as this was a data science competition and the results of the analysis need to be in a specific format.
+* The dataset contains 59,400 records and spans 40 columns. Of these columns, we identified 31 to be categorical, and 9 as numeric. 
+* Four CSV files have been provided. One titled(Training set values) contains training set values with data on the independent features for the training set. The training set labels file (Training set labels) contains data on the dependent variable. The test set values (Test set values) contains values that will be used for prediction. A submission format (Submission format) has also been provided as this was a data science competition and the results of the analysis need to be in a specific format.
 
 ---
 ---
@@ -60,20 +60,35 @@ Our stakeholders will benefit from this dataset's analysis and classification, w
 
 ### 3.1 Data Selection
 
-* I conducted an analysis of the data in order to pinpoint the most important characteristics that have a big impact on how well water wells perform. 
-* I was able to accomplish this by using exploratory data analysis, correlation analysis, and domain expertise. I also chose a subset of attributes that show strong correlations with successful outcomes and eliminated variables that were unnecessary or repetitive.
+* I conducted an analysis of the data in order to pinpoint the most important characteristics that have a big impact on how well water wells perform. I was able to accomplish this by using exploratory data analysis, correlation analysis, and domain expertise. I also chose a subset of attributes that show strong correlations with successful outcomes and eliminated variables that were unnecessary or repetitive.
 * The dataset has a large number of duplicate columns. For instance information is the same for `payment` and `payment_type`, `source` and `source_type`. I removed the columns inoreder to prepare data for modelling.
 
 ### 3.2 Data Cleaning
 
-Some features are similar to one another, such as **extraction_type**, **extraction_type_group**, and **extraction_type_class**, as well as **waterpoint_type** and **waterpoint_type_group**. In order to reduce the dimensionality of the data, the most generic columns for each overlapped column were kept since the same information being represented at many levels would raise multicollinearity concerns.
-Checking for validity in the data, the dataset was checked for any duplicated values and outliers. The duplicated records were not dropped as it does not mean that they were similar wells but just built under the same project.
-We also chose not to drop the outliers, as it did not display erroneous data but will be further looked into in the analysis section. 
-After cleaning the dataset, we need to bring uniformity by formatting and the columns to be  readable and easily interpretable.So we defined functions to make these possible.
+* Some features are similar to one another, such as **extraction_type**, **extraction_type_group**, and **extraction_type_class**, as well as **waterpoint_type** and **waterpoint_type_group**. In order to reduce the dimensionality of the data, the most generic columns for each overlapped column were kept since the same information being represented at many levels would raise multicollinearity concerns.
+* Checking for validity in the data, the dataset was checked for any duplicated values and outliers. The duplicated records were not dropped as it does not mean that they were similar wells but just built under the same project. We also chose not to drop the outliers, as it did not display erroneous data but will be further looked into in the analysis section. 
+* After cleaning the dataset, we need to bring uniformity by formatting and the columns to be readable and easily interpretable.So we defined functions to make these possible.
+---
+---
+
+## 4. Modelling
+
+First, we highlight the large size of our dataset and the imbalance in classes, mainly pertaining from "functional" and "non-functional" wells. Since the majority of our information comes from operational wells, maintaining the current imbalance isn't a priority for us.
+My target was the "status_group" variable. I converted it from ternery to a binary format, which generally indicates if a water well is operational or not. The categories "functional needs repair" and "non-functional" can be combined to represent non-operating wells as a single category, while "functional" stays the same. After label-encoding the categorical variables, I categorized the target.  To evaluate the fundamental performance of our selected features, I created a baseline model called Dummy Classifier and used the StandardScaler as my scaler. I subsequently investigated more complex models, such as Random Forest, SVM, K-Nearest-Neighbors, and Decision trees.
 
 ---
 ---
-## 4. Modelling
+
+## 5. Evaluation
+
+Before fitting the data to the model, I scaled it using pipelines. Subsequently, cross validation was employed to verify that our model was not overfitting. To assess the effectiveness of our method, I additionally employed a confusion matrix. My algorithm was able to predict up to 77% of the functionality with a moderate level of success.
+
+---
+---
+
+
+
+
 
 
 
