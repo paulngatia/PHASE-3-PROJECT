@@ -67,7 +67,7 @@ Our stakeholders will benefit from this dataset's analysis and classification, w
 
 * Some features are similar to one another, such as **extraction_type**, **extraction_type_group**, and **extraction_type_class**, as well as **waterpoint_type** and **waterpoint_type_group**. In order to reduce the dimensionality of the data, the most generic columns for each overlapped column were kept since the same information being represented at many levels would raise multicollinearity concerns.
 * Checking for validity in the data, the dataset was checked for any duplicated values and outliers. The duplicated records were not dropped as it does not mean that they were similar wells but just built under the same project. We also chose not to drop the outliers, as it did not display erroneous data but will be further looked into in the analysis section. 
-* After cleaning the dataset, we need to bring uniformity by formatting and the columns to be readable and easily interpretable.So we defined functions to make these possible.
+* After cleaning the dataset, we need to bring uniformity by formatting and the columns to be readable and easily interpretable. So I defined functions to make these possible.
 ---
 ---
 
@@ -81,7 +81,26 @@ My target was the "status_group" variable. I converted it from ternery to a bin
 
 ## 5. Evaluation
 
-Before fitting the data to the model, I scaled it using pipelines. Subsequently, cross validation was employed to verify that our model was not overfitting. To assess the effectiveness of our method, I additionally employed a confusion matrix. My algorithm was able to predict up to 77% of the functionality with a moderate level of success.
+Before fitting the data to the model, I scaled it using pipelines. Subsequently, to assest the effectiveness of our model, I additionally employed a confusion matrix. My algorithm was able to predict up to 78% of the functionality with a moderate level of success.
+
+I ran a total of 8 models, the baseline models and their hyperparameter tuned versions. The performance of the models varied with some overfitting on the training data and some not performing as well as expected. Notably, the performance of the some models reduced when I hyperparameter tuned the model. I attribute this to not having a wide enough search space for the best parameters. This can be improved upon in other iterations of the model
+
+The best performing model was RandomForestClassifier with an accuracy score of 78%. 
+
+![Confusion matrix](image-1.png)
+
+---
+---
+
+## 6. Conclusion
+
+Based on the findings of this study, I would advise the Ministry of Water to employ this model exclusively within the parameters set forth by the problem i.e. whether it is "functional" or "non-functional." Ministry of Water should also gather more data on the features used to build the model as well as more relevant details such as Consumption of water to be able to make the model better.
+
+Even though, the analysis may not provide a complete solution to the current issue. I was limited by time, among other things. More time would have allowed for the construction of better models. The machine I was using also put limitations on me. There are certain computationally expensive strategies, such as hyperparameter tuning. Since these strategies have lengthy run periods, it is necessary to limit their application.
+
+More robust techniques can also be used to clean the data, as well as collection of actual data to avoid imputation. More computation power can be added to effectively make use of hyperparameter tuning with GridSearchCV.
+
+
 
 ---
 ---
