@@ -38,14 +38,47 @@ As the project's data scientist, it will be our responsibility to find patterns 
 * Correctly identifying a well's functionality and assessing its feasibility are important aspects of the project. 
 
 ##### Project success criteria
-Generating a model that will be able to correctly predict the quality status of the wells in Tanzania with an accuracy of 75%.
+
+* Generating a model that will be able to correctly predict the quality status of the wells in Tanzania with an accuracy of 75%.
 ---
 ---
 ## 2. Data Understanding
 
 In this project we shall use a dataset containing information about existing water wells in Tanzania  sourced from an ongoing  DrivenData competition.
 
-### Data Description
+### 2.1 Data Description
+
+The dataset contains 59,400 records and spans 40 columns. Of these columns, we identified 31 to be categorical, and 9 as numeric. 
+Four CSV files have been provided. One titled(Training set values) contains training set values with data on the independent features for the training set. The training set labels file (Training set labels) contains data on the dependent variable. The test set values (Test set values) contains values that will be used for prediction. A submission format (Submission format) has also been provided as this was a data science competition and the results of the analysis need to be in a specific format.
+
+---
+---
+
+## 3. Data Preparation 
+
+Our stakeholders will benefit from this dataset's analysis and classification, which will help with better upkeep of the current water wells and provide insightful data for upcoming wells.
+
+### 3.1 Data Selection
+
+* I conducted an analysis of the data in order to pinpoint the most important characteristics that have a big impact on how well water wells perform. 
+* I was able to accomplish this by using exploratory data analysis, correlation analysis, and domain expertise. I also chose a subset of attributes that show strong correlations with successful outcomes and eliminated variables that were unnecessary or repetitive.
+* The dataset has a large number of duplicate columns. For instance information is the same for `payment` and `payment_type`, `source` and `source_type`. I removed the columns inoreder to prepare data for modelling.
+
+### 3.2 Data Cleaning
+
+Some features are similar to one another, such as **extraction_type**, **extraction_type_group**, and **extraction_type_class**, as well as **waterpoint_type** and **waterpoint_type_group**. In order to reduce the dimensionality of the data, the most generic columns for each overlapped column were kept since the same information being represented at many levels would raise multicollinearity concerns.
+Checking for validity in the data, the dataset was checked for any duplicated values and outliers. The duplicated records were not dropped as it does not mean that they were similar wells but just built under the same project.
+We also chose not to drop the outliers, as it did not display erroneous data but will be further looked into in the analysis section. 
+After cleaning the dataset, we need to bring uniformity by formatting and the columns to be  readable and easily interpretable.So we defined functions to make these possible.
+
+---
+---
+## 4. Modelling
+
+
+
+
+
 
 
 
