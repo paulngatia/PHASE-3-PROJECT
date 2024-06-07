@@ -100,6 +100,16 @@ Even though, the analysis may not provide a complete solution to the current iss
 
 More robust techniques can also be used to clean the data, as well as collection of actual data to avoid imputation. More computation power can be added to effectively make use of hyperparameter tuning with GridSearchCV.
 
+---
+---
+
+## Recommendations
+
+- The Lake Rukwa basin area, where there are considerably more non- functional wells than functional ones, may be worth considering for our stakeholders when they decide to build more wells in Tanzania. 
+- There are relevantly more non-functional wells than functioning ones in the Dodoma region; this situation has to be investigated and sought after since therere seems to probably be an issue with the location.
+- Over the course of time, wells with operating permission typically become more viable and useful than those without and here I would advice our stakholder to acquire permits for any of the existing or newly builts wells to enhance functionality in offering water.
+- Due to possible public misuse, unpaid wells frequently become inoperable; It would be upon the Ministry to create a reasonable payment which will in-turn help curb this. 
+- Because wells without permissions also have a higher likelihood of becoming inoperable, our stakeholder(Ministry of Water) must verify that they have permits to ensure that they are acceptable.
 
 
 ---
